@@ -1,0 +1,9 @@
+.\rf_id_recieve.o: RF_ID_recieve.c
+.\rf_id_recieve.o: C:\Keil_v5\ARM\Inc\NXP\LPC17xx\LPC17xx.H
+.\rf_id_recieve.o: C:\Keil_v5\ARM\CMSIS\Include\core_cm3.h
+.\rf_id_recieve.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdint.h
+.\rf_id_recieve.o: C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h
+.\rf_id_recieve.o: C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h
+.\rf_id_recieve.o: C:\Keil_v5\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h
+.\rf_id_recieve.o: uart0.h
+.\rf_id_recieve.o: delay.h

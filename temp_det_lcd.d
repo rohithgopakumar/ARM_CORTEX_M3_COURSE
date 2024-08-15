@@ -1,0 +1,9 @@
+.\temp_det_lcd.o: temp_det_lcd.c
+.\temp_det_lcd.o: C:\Keil_v5\ARM\Inc\NXP\LPC17xx\LPC17xx.H
+.\temp_det_lcd.o: C:\Keil_v5\ARM\CMSIS\Include\core_cm3.h
+.\temp_det_lcd.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdint.h
+.\temp_det_lcd.o: C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h
+.\temp_det_lcd.o: C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h
+.\temp_det_lcd.o: C:\Keil_v5\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h
+.\temp_det_lcd.o: delay.h
+.\temp_det_lcd.o: uart0.h

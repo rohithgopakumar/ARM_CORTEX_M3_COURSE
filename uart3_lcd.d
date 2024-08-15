@@ -1,0 +1,14 @@
+.\uart3_lcd.o: uart3_lcd.c
+.\uart3_lcd.o: C:\Keil_v5\ARM\Inc\NXP\LPC17xx\LPC17xx.H
+.\uart3_lcd.o: C:\Keil_v5\ARM\CMSIS\Include\core_cm3.h
+.\uart3_lcd.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdint.h
+.\uart3_lcd.o: C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h
+.\uart3_lcd.o: C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h
+.\uart3_lcd.o: C:\Keil_v5\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h
+.\uart3_lcd.o: uart3.h
+.\uart3_lcd.o: delay.h
+.\uart3_lcd.o: uart0.h
+.\uart3_lcd.o: gsm_init.h
+.\uart3_lcd.o: delay2.h
+.\uart3_lcd.o: gsm_send.h
+.\uart3_lcd.o: delay1.h

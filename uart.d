@@ -1,0 +1,9 @@
+.\uart.o: UART.c
+.\uart.o: C:\Keil_v5\ARM\Inc\NXP\LPC17xx\LPC17xx.H
+.\uart.o: C:\Keil_v5\ARM\CMSIS\Include\core_cm3.h
+.\uart.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdint.h
+.\uart.o: C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h
+.\uart.o: C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h
+.\uart.o: C:\Keil_v5\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h
+.\uart.o: uart0.h
+.\uart.o: delay.h

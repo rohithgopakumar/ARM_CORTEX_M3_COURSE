@@ -1,0 +1,36 @@
+#include <LPC17xx.H>
+
+
+
+
+int main()
+{
+SystemInit ();
+LPC_SC->PCONP |= 0x00001000;
+LPC_GPIO1->FIOMASK3 =0X7F;
+LPC_GPIO1->FIODIR3=0X00;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

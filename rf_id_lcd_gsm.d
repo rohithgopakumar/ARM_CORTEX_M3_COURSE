@@ -1,0 +1,13 @@
+.\rf_id_lcd_gsm.o: RF_ID_LCD_GSM.c
+.\rf_id_lcd_gsm.o: C:\Keil_v5\ARM\Inc\NXP\LPC17xx\LPC17xx.H
+.\rf_id_lcd_gsm.o: C:\Keil_v5\ARM\CMSIS\Include\core_cm3.h
+.\rf_id_lcd_gsm.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdint.h
+.\rf_id_lcd_gsm.o: C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h
+.\rf_id_lcd_gsm.o: C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h
+.\rf_id_lcd_gsm.o: C:\Keil_v5\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h
+.\rf_id_lcd_gsm.o: uart0.h
+.\rf_id_lcd_gsm.o: delay.h
+.\rf_id_lcd_gsm.o: gsm_init.h
+.\rf_id_lcd_gsm.o: delay2.h
+.\rf_id_lcd_gsm.o: gsm_send.h
+.\rf_id_lcd_gsm.o: delay1.h

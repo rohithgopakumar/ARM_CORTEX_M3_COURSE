@@ -1,0 +1,273 @@
+#include <LPC17xx.H>
+#include "delay.h"
+#include "uart0.h"
+//#include "convert.h"
+unsigned int ad0;
+unsigned char cmd[]={0x38,0x0E,0X06,0X01,0X80};
+unsigned char cmd1[]={0xC0};
+unsigned char out[4];
+unsigned char msg1[]="temphigh",k;
+unsigned char msg2[]="templow",j;
+unsigned char msg3[]="nochange";
+void convert(unsigned int adc);
+int main()
+{
+SystemInit ();
+	//ADC
+LPC_SC->PCONP |= 0x00001000;
+LPC_GPIO1->FIOMASK3 =0X7F;
+LPC_GPIO1->FIODIR3=0X00;
+	
+LPC_PINCON -> PINSEL3=0XC0000000;
+LPC_ADC -> ADCR= 0x00210320;
+/////////////////////////////////////////////////////////////////////
+	
+//UART
+LPC_PINCON->PINSEL0 = 0X00000050;
+uart0_init();
+	
+//lcd int
+//PORT INITIALIZATION 
+LPC_GPIO0->FIOMASKH =0XE01F;
+LPC_GPIO0->FIODIRH |=0X1FE0;	
+LPC_GPIO2->FIOMASK1=0XC7;
+LPC_GPIO2->FIODIR1=0X38;
+LPC_GPIO2->FIOCLR1=0X10;  //RW=0
+LPC_GPIO2->FIOCLR1=0X08;  //RS=0
+
+	
+for(k=0;k<5;k++)
+{
+  LPC_GPIO0 -> FIOPIN=cmd[k] <<21;
+	LPC_GPIO2 -> FIOSET1=0x20;
+  delay(0x500);
+	LPC_GPIO2 -> FIOCLR1=0x20;
+  delay(0x5000);
+}
+////////////////////////////////////////////////////////////////////
+while(1)
+{
+	
+//////////////init lcd
+delay(0xFFFFFF);
+
+LPC_GPIO2->FIOCLR1=0X08;  //RS=0
+
+for(k=0;k<5;k++)
+{
+  LPC_GPIO0 -> FIOPIN=cmd[k] <<21;
+	LPC_GPIO2 -> FIOSET1=0x20;
+  delay(0x500);
+	LPC_GPIO2 -> FIOCLR1=0x20;
+  delay(0x5000);
+}
+///////////////////////////////////////////
+	
+	
+	
+	
+
+while((LPC_ADC -> ADSTAT & 0x00000020) != 0x00000020)
+	{	
+	}
+	ad0 =((LPC_ADC->ADDR5 & 0x0000FFF0)>>4);
+	
+	
+	
+	/////////////////LOW CONDITION//////////////////////////////////////
+	if(ad0 <= 0x174)
+	{
+		delay(0XFFFF);
+		convert(ad0);
+	  for(k=0;msg2[k]!='\0';k++)
+   {
+		
+    LPC_UART0-> THR=msg2[k];
+		
+	  while((LPC_UART0->LSR&0X20)!=0X20)
+		
+	  {
+	  }
+			
+   }
+	LPC_GPIO2->FIOSET1=0X08;  //RS=1
+	for(k=0;msg2[k]!='\0';k++)
+   {
+  LPC_GPIO0 -> FIOPIN=msg2[k] <<21;
+	LPC_GPIO2 -> FIOSET1=0x20;
+  delay(0x500);
+	LPC_GPIO2 -> FIOCLR1=0x20;
+  //delay(0x1000);
+   }
+	 
+	 delay(0xFFFFFF);
+
+LPC_GPIO2->FIOCLR1=0X08;  //RS=0
+
+//for(k=0;k<5;k++)
+{
+  LPC_GPIO0 -> FIOPIN=0xC0 <<21;
+	LPC_GPIO2 -> FIOSET1=0x20;
+  delay(0x500);
+	LPC_GPIO2 -> FIOCLR1=0x20;
+  delay(0x5000);
+}
+
+ delay(0xFFFFFF);
+	 
+	LPC_GPIO2->FIOSET1=0X08;  //RS=1
+	for(k=0;k<4;k++)
+   {
+  LPC_GPIO0 -> FIOPIN=(out[k]+0x30) <<21;
+	LPC_GPIO2 -> FIOSET1=0x20;
+  delay(0x500);
+	LPC_GPIO2 -> FIOCLR1=0x20;
+   }
+	  
+	 delay(0xFFFFFF);
+ 
+	}
+	
+	else if (ad0>0x0174 & ad0<0x4DA)
+	
+	{
+	  delay(0XFFFFFF);
+		convert(ad0);
+		for(k=0;msg3[k]!='\0';k++)
+   {
+		
+    LPC_UART0-> THR=msg3[k];
+		
+	  while((LPC_UART0->LSR&0X20)!=0X20)
+	  {
+	  }
+		
+	
+   }
+	 
+	 
+	LPC_GPIO2->FIOSET1=0X08;  //RS=1
+	for(k=0;msg3[k]!='\0';k++)
+   {
+  LPC_GPIO0 -> FIOPIN=msg3[k] <<21;
+	LPC_GPIO2 -> FIOSET1=0x20;
+  delay(0x500);
+	LPC_GPIO2 -> FIOCLR1=0x20;
+  //delay(0x1000);
+   }
+delay(0XFFFFFF);
+LPC_GPIO2->FIOCLR1=0X08;  //RS=0
+
+//for(k=0;k<5;k++)
+{
+  LPC_GPIO0 -> FIOPIN=0xC0 <<21;
+	LPC_GPIO2 -> FIOSET1=0x20;
+  delay(0x500);
+	LPC_GPIO2 -> FIOCLR1=0x20;
+  delay(0x5000);
+}
+
+ delay(0xFFFFFF);
+	 
+	LPC_GPIO2->FIOSET1=0X08;  //RS=1
+	for(k=0;k<4;k++)
+   {
+  LPC_GPIO0 -> FIOPIN=(out[k]+0x30) <<21;
+	LPC_GPIO2 -> FIOSET1=0x20;
+  delay(0x500);
+	LPC_GPIO2 -> FIOCLR1=0x20;
+   }
+	  
+	 delay(0xFFFFFF);
+ 
+	}
+	
+	
+	else if (ad0>=0x4DA)	
+		
+	{
+	  delay(0XFFFFFF);
+		convert(ad0);
+		for(k=0;msg1[k]!='\0';k++)
+   {
+		
+    LPC_UART0-> THR=msg1[k];
+		
+	  while((LPC_UART0->LSR&0X20)!=0X20)
+	  {
+	  }
+		
+	
+   }
+	 LPC_GPIO2->FIOSET1=0X08;  //RS=1
+	for(k=0;msg1[k]!='\0';k++)
+   {
+  LPC_GPIO0 -> FIOPIN=msg1[k] <<21;
+	LPC_GPIO2 -> FIOSET1=0x20;
+  delay(0x500);
+	LPC_GPIO2 -> FIOCLR1=0x20;
+  //delay(0x1000);
+   }
+	 delay(0XFFFFFF);
+LPC_GPIO2->FIOCLR1=0X08;  //RS=0
+
+//for(k=0;k<5;k++)
+{
+  LPC_GPIO0 -> FIOPIN=0xC0 <<21;
+	LPC_GPIO2 -> FIOSET1=0x20;
+  delay(0x500);
+	LPC_GPIO2 -> FIOCLR1=0x20;
+  delay(0x5000);
+}
+
+ delay(0xFFFFFF);
+	 
+	LPC_GPIO2->FIOSET1=0X08;  //RS=1
+	for(k=0;k<4;k++)
+   {
+  LPC_GPIO0 -> FIOPIN=(out[k]+0x30) <<21;
+	LPC_GPIO2 -> FIOSET1=0x20;
+  delay(0x500);
+	LPC_GPIO2 -> FIOCLR1=0x20;
+   }
+	  
+	 delay(0xFFFFFF);
+ 
+	}
+
+}
+
+}
+
+
+
+
+
+
+
+void convert(unsigned int adc)
+{
+	
+unsigned char x1=0,x2=0,x3=0;
+out[3]=adc%0x0A; //0XFFF%0X0A=05
+adc=adc/0X0A; //0XFFF/0X0A=0X199
+out[2]=adc%0X0A; //0X199%0X0A=9
+adc=adc/0X0A; // 0X199/0X0A=0X28
+out[1]=adc%0X0A; //0x28%0x0A=0x00
+out[0]=adc/0X0A; //0x28/0x0A=0x04
+	
+	
+	
+  for(k=0;k<4;k++)
+	{
+    LPC_UART0-> THR=out[k]+0x30;
+		
+	  while((LPC_UART0->LSR&0X20)!=0X20)
+	  {
+	  }	
+    }
+	delay(0xFFFF);
+    
+	
+
+}

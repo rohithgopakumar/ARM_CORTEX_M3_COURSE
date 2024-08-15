@@ -1,0 +1,12 @@
+.\gsm.o: GSM.c
+.\gsm.o: C:\Keil_v5\ARM\Inc\NXP\LPC17xx\LPC17xx.H
+.\gsm.o: C:\Keil_v5\ARM\CMSIS\Include\core_cm3.h
+.\gsm.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdint.h
+.\gsm.o: C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h
+.\gsm.o: C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h
+.\gsm.o: C:\Keil_v5\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h
+.\gsm.o: uart0.h
+.\gsm.o: gsm_init.h
+.\gsm.o: delay2.h
+.\gsm.o: gsm_send.h
+.\gsm.o: delay1.h

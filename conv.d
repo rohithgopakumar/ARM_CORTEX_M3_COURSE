@@ -1,0 +1,9 @@
+.\conv.o: CONV.C
+.\conv.o: C:\Keil_v5\ARM\Inc\NXP\LPC17xx\LPC17xx.H
+.\conv.o: C:\Keil_v5\ARM\CMSIS\Include\core_cm3.h
+.\conv.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdint.h
+.\conv.o: C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h
+.\conv.o: C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h
+.\conv.o: C:\Keil_v5\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h
+.\conv.o: delay.h
+.\conv.o: uart0.h
