@@ -1,0 +1,9 @@
+.\gps_detection.o: GPS_DETECTION.c
+.\gps_detection.o: C:\Keil_v5\ARM\Inc\NXP\LPC17xx\LPC17xx.H
+.\gps_detection.o: C:\Keil_v5\ARM\CMSIS\Include\core_cm3.h
+.\gps_detection.o: C:\Keil_v5\ARM\ARMCC\bin\..\include\stdint.h
+.\gps_detection.o: C:\Keil_v5\ARM\CMSIS\Include\core_cmInstr.h
+.\gps_detection.o: C:\Keil_v5\ARM\CMSIS\Include\core_cmFunc.h
+.\gps_detection.o: C:\Keil_v5\ARM\Inc\NXP\LPC17xx\system_LPC17xx.h
+.\gps_detection.o: delay.h
+.\gps_detection.o: uart0.h
